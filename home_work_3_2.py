@@ -25,14 +25,16 @@
 import random
 
 def get_numbers_ticket(min, max, quantity):
-    if min < 1: # min - мінімальне можливе число у наборі (не менше 1).
+    if min < 1:  # min - мінімальне можливе число у наборі (не менше 1).
         return []
-    elif max > 1000: # max - максимальне можливе число у наборі (не більше 1000).
+    elif max > 1000:  # max - максимальне можливе число у наборі (не більше 1000).
         return []
-    elif min > quantity > max: # quantity - кількість чисел, які потрібно вибрати (значення між min і max).
+    elif min >= max:  # min не менше за max
+        return []
+    elif quantity < min or quantity > max - min + 1:  # quantity в межах діапазону
         return []
     else:
-        return sorted(random.sample(range(min, max+1), quantity)) # повернення списку включно з максимамльним значенням діапазону
+        return sorted(random.sample(range(min, max+1), quantity))  # повернення списку включно з максимальним значенням діапазону
 
 lottery_numbers = get_numbers_ticket(1, 49, 6)
 print("Ваші лотерейні числа:", lottery_numbers)

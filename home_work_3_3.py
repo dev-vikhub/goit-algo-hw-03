@@ -43,16 +43,13 @@ raw_numbers = [
 ]
 
 def normalize_phone(num):
-    for num in raw_numbers:
-        norm_numbers = re.sub(r'[^0-9]', '', num)
-        if not norm_numbers.startswith('+'):
-            if norm_numbers.startswith('380'):
-                norm_numbers = '+' + norm_numbers
-            else:
-                norm_numbers = '+38' + norm_numbers
-        else:
-            return norm_numbers
-    return norm_numbers
+    norm_numbers = re.sub(r'[^0-9]', '', num)
+    if norm_numbers.startswith('380'):
+        return '+' + norm_numbers
+    elif norm_numbers.startswith('+380'):
+        return norm_numbers
+    else:
+        return '+38' + norm_numbers
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
 print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
