@@ -31,10 +31,10 @@ def get_numbers_ticket(min, max, quantity):
         return []
     elif min >= max:  # min не менше за max
         return []
-    elif quantity < min or quantity > max - min + 1:  # quantity в межах діапазону
+    elif quantity > (max - min + 1):  # quantity в межах діапазону
         return []
     else:
         return sorted(random.sample(range(min, max+1), quantity))  # повернення списку включно з максимальним значенням діапазону
 
-lottery_numbers = get_numbers_ticket(1, 49, 6)
+lottery_numbers = get_numbers_ticket(10, 20, 5)
 print("Ваші лотерейні числа:", lottery_numbers)

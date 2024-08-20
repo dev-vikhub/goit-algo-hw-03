@@ -17,13 +17,13 @@ def get_days_from_today(date):
         date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
         current_date = datetime.datetime.today().date()
         days_delta = current_date - date
-        if days_delta.days > 0:
-            print(f"Від {date} до сьогоднішні пройшло {days_delta.days} днів")
-        elif days_delta.days == 0:
-            print("Ви ввели сьогоднішню дату.")
-        else:
-            print(f"Від сьогодні до {date} потрібно почекати "
-                  f"{days_delta.days * (-1)} днів")
+        # if days_delta.days > 0:
+        #     print(f"Від {date} до сьогоднішні пройшло {days_delta.days} днів")
+        # elif days_delta.days == 0:
+        #     print("Ви ввели сьогоднішню дату.")
+        # else:
+        #     print(f"Від сьогодні до {date} потрібно почекати "
+        #           f"{days_delta.days * (-1)} днів")
         return days_delta.days
     except ValueError:
         print("Дату введено некоректно.")
